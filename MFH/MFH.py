@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+ #!/usr/bin/env python2
 
 # Setup Modules
 import os
@@ -40,6 +40,12 @@ def SetupLogging():
   log.addHandler(log_console)
 
   log.debug('Logging facility initalized...')
+
+
+def ProcessFilename(file):
+    log.debug('Processing File: "{}"'.format(file))
+    DIR_BASE, FILENAME = os.path.split()
+
 
 
 # Main screen turn on...
