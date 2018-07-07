@@ -1,3 +1,9 @@
 #!/usr/bin/env python2
 
-print "Hello World!"
+# Setting up external libs
+import Logging
+
+# Setting up Logging
+logging.basicConfig(level=logging.INFO)
+logger  = logging.getlogger(__name__)
+logger.info('Logging facility initalized...')
