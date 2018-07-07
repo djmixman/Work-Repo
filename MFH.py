@@ -5,5 +5,5 @@ import logging
 
 # Setting up Logging
 logging.basicConfig(level=logging.INFO)
-logger  = logging.getlogger(__name__)
-logger.info('Logging facility initalized...')
+log  = logging.getLogger(__name__)
+log.info('Logging facility initalized...')
