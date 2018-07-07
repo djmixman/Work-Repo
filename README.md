@@ -1,2 +1,2 @@
 # Work-Repo
-A collection of scripts I have may to use for my job. 
+A collection of scripts I have made to automate some tasks for my job.
