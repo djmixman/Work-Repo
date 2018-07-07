@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 
 # Setting up external libs
-import Logging
+import logging
 
 # Setting up Logging
 logging.basicConfig(level=logging.INFO)
