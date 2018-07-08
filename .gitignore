@@ -1,1 +1,3 @@
-.TestData
+*/logs
+*.pyc
+*.old
