@@ -11,9 +11,8 @@ from logger import log
 from subjects import EmployeeFile
 from subjects import FacilityRequest
 
-SOURCE_PATH   = '/home/mix-man/temp/Work/'
-# SOURCE_PATH   = '/home/mix-man/temp/Work/Facility Requests'
-# SOURCE_PATH   = '/home/mix-man'
+WORK_PATH     = '/home/mix-man/temp/Work/'
+SOURCE_PATH   = WORK_PATH
 
 PATH_FAC_REQUEST  = '/home/mix-man/temp/Facility Requests'
 
@@ -44,6 +43,8 @@ def Start(SOURCE):
   Detects which "Subject" the file is and sends it to the correct handler
   '''
 
+  log.info(' ')
+  log.info('--------------------------------------------')
   log.info('[{0}]: Processing File'.format(SOURCE))
 
   file = ProcessFile(SOURCE)
