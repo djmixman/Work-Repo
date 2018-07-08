@@ -1,0 +1,67 @@
+import os
+
+from datetime import datetime
+from logger import log
+
+import re
+
+class RegEx(object):
+  def __init__(self, DATA):
+    self.DATA   = DATA
+
+  def getDates(self):
+    self.DATE_GROUP = re.search(r'\d{4}-\d{2}-\d{2}', self.FILENAME)
+
+
+class FacilityRequest(object):
+  def __init__(self, SOURCE, TARGET_PATH):
+    self.SOURCE             = SOURCE
+    self.FILENAME           = os.path.basename(SOURCE)
+    self.PATH_BASE          = os.path.dirname(SOURCE)
+    self.TARGET_PATH        = TARGET_PATH
+    self.YEAR               = 0000
+
+  def getPath(self): return self.PATH_BASE
+  def getDateGroup(self): return re.search(r'\d{4}-\d{2}-\d{2}', self.FILENAME)
+
+#  def getYearT(self, dategroup):
+  def getYearT(self):
+
+    d = self.getDateGroup.group(0)
+    dt = datetime.date(d)
+    log.debug('YEAR: {0}'.format(dt.year))
+#    year = dt.year()
+    return dt.year
+
+
+  def setDateGroup(self, dategroup):
+    self.DATE_GROUP = dategroup
+    return True
+
+  def setYear(self, year):
+    self.YEAR = year
+
+  def getYear(self):
+    data = self.getDateGroup()
+    return data.group(0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#   self.BASE_DIR           = os.path.dirname(SOURCE)
+#   self.REL_BASE_DIR       = os.path.relpath(self.BASE_DIR, SOURCE_PATH)
+#   self.SUBJECT, self.TYPE = os.path.split(self.REL_BASE_DIR)
+#   self.TARGET             = TARGET_PATH
