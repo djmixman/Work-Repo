@@ -1,12 +1,18 @@
 import logging
 
+ConfigFile  = 'config.ini'
+from ConfigParser import SafeConfigParser
+config = SafeConfigParser()
+config.read(ConfigFile)
+
 LOG_CONSOLE_LEVEL     = logging.INFO
 LOG_CONSOLE_FORMAT    = logging.Formatter('%(message)s')
 
+# LOG_FILE_NAME         = '../logs/MFH.log'
+LOG_FILE_NAME         = config.get('LOGGING', 'LOG_FILE')
 LOG_FILE_LEVEL        = logging.DEBUG
-LOG_FILE_NAME         = '../logs/MFH.log'
 LOG_FILE_MODE         = 'w'
-LOG_FILE_FORMAT       = logging.Formatter('%(asctime)s:[%(levelname)-8s]:[%(name)-14.14s]:[%(funcName)-14.14s]: %(message)s')
+LOG_FILE_FORMAT       = logging.Formatter('%(asctime)s:[%(levelname)-8s]:[%(name)s -> %(funcName)s]: %(message)s')
 #LOG_FILE_FORMAT       = logging.Formatter('%(asctime)s : %(name)-10s: [%(levelname)-8s] %(message)s')
 LOG_FILE_DATE_FORMAT  = '%y-%m-%d %H%M'
 
@@ -30,10 +36,7 @@ def SetupLogging():
   log.addHandler(log_file)
   log.addHandler(log_console)
 
-  log.debug('+--------------------------------+')
-  log.debug('|Logging facility initalized...  |')
-  log.debug('+--------------------------------+')
-  log.debug('')
+  log.debug('Script Loaded!')
 
 
 SetupLogging()
