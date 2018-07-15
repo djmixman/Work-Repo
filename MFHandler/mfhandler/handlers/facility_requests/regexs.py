@@ -43,7 +43,6 @@ class Rex(object):
             log.info('[{0}{1}] EXTRA_INFO  : {2}'.format(self.FILENAME, self.EXT, self.EXTRA_INFO))
 
 
-
 def main():
     log.debug('Module Loaded!')
 
