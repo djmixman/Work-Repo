@@ -83,53 +83,7 @@ class FacilityRequest(object):
                 if self.CheckFILE():
                     log.info('FILE Check Passed...')
                     FileProc.MoveFile(self.FULLFILE, self.TARGET_FULL)
-
-
-
-
-
-
-
-
-
-def ProcessFile(object):
-    FULLFILE    = object.FULLFILE
-    FILENAME    = object.FILENAME
-    TARGET_PATH = TARGET
-    log.info('[{0}]: Received file from FileHandler: {1}'.format(FILENAME, FULLFILE))
-    log.debug('[{0}]: TARGET_PATH CHANGED: {1}'.format(FILENAME, TARGET_PATH))
-
-    regs = Rex(FILENAME)
-    log.debug('[{0}]: YEAR   : {1}'.format(FILENAME, regs.getYear()))
-    log.debug('[{0}]: MONTH  : {1}'.format(FILENAME, regs.getMonth()))
-    log.debug('[{0}]: DAY    : {1}'.format(FILENAME, regs.getDay()))
-
-
-    # Setup FY
-    DATE                    = '{0}-{1}-{2}'.format(regs.getYear(), regs.getMonth(), regs.getDay())
-
-    # NOTE: Need to change the 9 to a variable
-    FY          = MonthAttr.getFiscalYear(9, DATE)
-    FY_TEXT     = 'FY{0}'.format(FY)
-    log.debug('[{0}]: FY                    : {1}'.format(FILENAME, FY_TEXT))
-
-    TARGET_PATH = os.path.join(TARGET_PATH, FY_TEXT)
-    log.debug('[{0}]: TARGET_PATH CHANGED   : {1}'.format(FILENAME, TARGET_PATH))
-
-    M           = MonthAttr.getNumDotAbbr(regs.getMonth())
-    TARGET_PATH = os.path.join(TARGET_PATH, M)
-    log.debug('[{0}]: TARGET_PATH CHANGED   : {1}'.format(FILENAME, TARGET_PATH))
-
-
-    if not FileProc.CheckDIR(TARGET_PATH):
-        log.debug('[{0}] there was a problem creating a dir!'.format(FILENAME))
-        return False
-
-
-def test(text):
-    log.debug('Testing: {0}'.format(text))
-
-
+        log.info('------------------------------------------------------')
 
 
 # StartUp

@@ -22,8 +22,15 @@ def StartUp():
 #            ProcessFile(os.path.join(DIR, FILE))
 
     # file = FileHandler('/home/mix-man/Facility Requests/2018-01-01 - DAY-CREW - MPR.pdf')
-    file = FileHandler('/home/mix-man/Facility Requests/2018-09-02 - DAY-CREW - MPR, CTE DR, C568 - Extra Info - Here.pdf')
-    file.ProcessFile()
+    import glob
+    for file in glob.glob('/home/mix-man/temp/Work/Facility Requests/*'):
+#        log.info(file)
+        run = FileHandler(file)
+        run.ProcessFile()
+
+
+#    file = FileHandler('/home/mix-man/Facility Requests/2018-09-02 - DAY-CREW - MPR, CTE DR, C568 - Extra Info - Here.pdf')
+#    file.ProcessFile()
 
 #    file = FileHandler('/home/mix-man/Facility Requests/2018-01-02 - DAY-CREW - MPR, CTE DR, C568.pdf')
 #    file.ProcessFile()

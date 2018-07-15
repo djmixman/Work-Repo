@@ -15,9 +15,6 @@ import os, sys
 # from subjects import *
 from handlers import *
 
-# facility_requests.test('This is a test!')
-# employee_files.test('This is a test!')
-
 # Program Setup
 SOURCE_PATH = config.get('FILE_HANDLER','SOURCE_PATH')
 
@@ -60,14 +57,12 @@ class FileHandler(object):
         '''
         Sends the file to the correct handler.
         '''
-        log.info(' ')
-        log.info('--------------------------------------------')
-        log.info('[{0}]: Processing File'.format(self.FILENAME))
+        log.debug('[{0}]: Processing File'.format(self.FILENAME))
 
         log.debug('[{0}]: Subject Detection: {1}'.format(self.FILENAME, self.SUBJECT_TYPE))
 
         if self.SUBJECT_TYPE == 1:
-            log.info('[{0}]: Sending to Facility Request Processor...'.format(self.FILENAME))
+            log.debug('[{0}]: Sending to Facility Request Processor...'.format(self.FILENAME))
 #           facility_requests.ProcessFile(self.FULLFILE)
 #            facility_requests.ProcessFile(self)
             facility_requests.FacilityRequest(self)
@@ -75,11 +70,11 @@ class FileHandler(object):
             #    FacilityRequest.Start(SOURCE, PATH_FAC_REQUEST)
 
         elif self.SUBJECT_TYPE == 2:
-            log.info('[{0}]: Sending to Employee Files Processor...'.format(self.FILENAME))
+            log.debug('[{0}]: Sending to Employee Files Processor...'.format(self.FILENAME))
             pass
 
         elif self.SUBJECT_TYPE == 99:
-            log.critical('[{0}]: Unable to determine subject! Check the file and try again.'.format(self.FILENAME))
+            log.critical('[{0}]: Unable to determine subject! Check the file and/or the "Work Directory" and try again.'.format(self.FILENAME))
             sys.exit()
 
         else:
