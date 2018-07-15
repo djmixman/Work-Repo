@@ -3,39 +3,24 @@ log = logging.getLogger(__name__)
 
 import os, re
 
+# ^(\d{4}-\d{2}-\d{2}) - (.*?-.*?) - (.*?) - (.*?)$
 
 class Rex(object):
-        def getYear(self):
-            match = re.search(r'(\d{4})-\d{2}-\d{2}', self.FILENAME)
-            return match.group(1)
-
-        def getMonth(self):
-            match = re.search(r'\d{4}-(\d{2})-\d{2}', self.FILENAME)
-            return match.group(1)
-
-        def getDay(self):
-            match = re.search(r'\d{4}-\d{2}-(\d{2})', self.FILENAME)
-            return match.group(1)
-
-        def getStartTime(self):
-            match = re.search(r'- (.*?)-.*? -', self.FILENAME)
-            return match.group(1)
-
-        def getEndTime(self):
-            match = re.search(r'- .*?-(.*?) -', self.FILENAME)
-            return match.group(1)
+        def getYear(self):      return re.search(r'(\d{4})-\d{2}-\d{2}',    self.FILENAME).group(1)
+        def getMonth(self):     return re.search(r'\d{4}-(\d{2})-\d{2}',    self.FILENAME).group(1)
+        def getDay(self):       return re.search(r'\d{4}-\d{2}-(\d{2})',    self.FILENAME).group(1)
+        def getStartTime(self): return re.search(r'- (.*?)-.*? -',          self.FILENAME).group(1)
+        def getEndTime(self):   return re.search(r'- .*?-(.*?) -',          self.FILENAME).group(1)
 
         def getLocations(self):
-            match = re.search(r'- .*?-.*? - (.*?)$', self.FILENAME)
-            LOCATIONS = match.group(1).split(' - ')[0]
-            LOCATIONS = LOCATIONS.split(', ')
-            return LOCATIONS
+            LINE_END            = re.search(r'- .*?-.*? - (.*?)$', self.FILENAME).group(1)
+            if '-' in LINE_END: return re.search(r'(.*?) - (.*?)$', LINE_END).group(1)
+            else:               return LINE_END
 
         def getExtraInfo(self):
-            match = re.search(r'- .*?-.*? - (.*?)$', self.FILENAME)
-            return match.group(1).split(' - ')[0]
-
-
+            LINE_END            = re.search(r'- .*?-.*? - (.*?)$', self.FILENAME).group(1)
+            if '-' in LINE_END: return re.search(r'(.*?) - (.*?)$', LINE_END).group(2)
+            else: return None
 
         def __init__(self, SOURCE):
             self.FILENAME, self.EXT = os.path.splitext(SOURCE)
