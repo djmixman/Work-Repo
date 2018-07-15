@@ -12,7 +12,7 @@ from common.logger import log
 import logging
 log = logging.getLogger(__name__)
 
-from FileHandler import FileHandler
+from handlers.FileHandler import FileHandler
 
 def StartUp():
     log.debug('Script Loaded!')
