@@ -2,9 +2,30 @@
 import logging
 log = logging.getLogger(__name__)
 
+from ConfigParser import SafeConfigParser
+ConfigFile = 'config.ini'
+config = SafeConfigParser()
+config.read(ConfigFile)
 
-def ProcessFile(SOURCE):
-    log.debug('Recived file from FileHandler: {0}'.format(SOURCE))
+from regexs import Rex
+
+def ProcessFile(object):
+    FULLFILE    = object.FULLFILE
+    FILENAME    = object.FILENAME
+
+    log.info('[{0}]: Received file from FileHandler: {1}'.format(FILENAME, FULLFILE))
+
+    regs = Rex(FILENAME)
+    log.info('[{0}]: YEAR  : {1}'.format(FILENAME, regs.getYear()))
+    log.info('[{0}]: MONTH : {1}'.format(FILENAME, regs.getMonth()))
+    log.info('[{0}]: DAY   : {1}'.format(FILENAME, regs.getDay()))
+
+
+
+
+
+
+
 
 
 def test(text):

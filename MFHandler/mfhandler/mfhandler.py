@@ -22,7 +22,7 @@ def StartUp():
 #            ProcessFile(os.path.join(DIR, FILE))
 
     # file = FileHandler('/home/mix-man/Facility Requests/2018-01-01 - DAY-CREW - MPR.pdf')
-    file = FileHandler('/home/mix-man/Facility Requests/2018-01-01 - DAY-CREW - MPR.pdf')
+    file = FileHandler('/home/mix-man/Facility Requests/2018-01-02 - DAY-CREW - MPR, CTE DR, C568.pdf')
     file.ProcessFile()
 
     file2 = FileHandler('/home/mix-man/Employee Files/Training/Last, First - 2018-06-09 - EEO.pdf')

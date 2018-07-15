@@ -1,11 +1,10 @@
-from common.logger import log
+# from common.logger import log
 import logging
 log = logging.getLogger(__name__)
 
 # Config Setup
-ConfigFile = 'config.ini'
-
 from ConfigParser import SafeConfigParser
+ConfigFile = 'config.ini'
 config = SafeConfigParser()
 config.read(ConfigFile)
 
@@ -38,10 +37,6 @@ def GetSubjectType(value):
 
 
 class FileHandler(object):
-#    def GetSubject(self, value):
-#        if "Facility Requests" in self.REL_BASE_DIR: return 'Facility Request'
-#        if 'Employee File' in self.SUBJECT: return 'Employee File'
-#        return 'Unknown'
 
     def __init__(self, SOURCE):
         self.FULLFILE           = SOURCE
@@ -74,7 +69,8 @@ class FileHandler(object):
 
         if self.SUBJECT_TYPE == 1:
             log.info('[{0}]: Sending to Facility Request Processor...'.format(self.FILENAME))
-            facility_requests.ProcessFile(self.FULLFILE)
+#           facility_requests.ProcessFile(self.FULLFILE)
+            facility_requests.ProcessFile(self)
             #    FacilityRequest.Start(SOURCE, PATH_FAC_REQUEST)
 
         elif self.SUBJECT_TYPE == 2:
