@@ -32,15 +32,15 @@ class Rex(object):
             self.LOCATIONS          = self.getLocations()
             self.EXTRA_INFO         = self.getExtraInfo()
 
-            log.info('[{0}{1}] FILENAME    : {2}'.format(self.FILENAME, self.EXT, self.FILENAME))
-            log.info('[{0}{1}] EXT         : {2}'.format(self.FILENAME, self.EXT, self.EXT))
-            log.info('[{0}{1}] YEAR        : {2}'.format(self.FILENAME, self.EXT, self.YEAR))
-            log.info('[{0}{1}] MONTH       : {2}'.format(self.FILENAME, self.EXT, self.MONTH))
-            log.info('[{0}{1}] DAY         : {2}'.format(self.FILENAME, self.EXT, self.DAY))
-            log.info('[{0}{1}] START_TIME  : {2}'.format(self.FILENAME, self.EXT, self.START_TIME))
-            log.info('[{0}{1}] END_TIME    : {2}'.format(self.FILENAME, self.EXT, self.END_TIME))
-            log.info('[{0}{1}] LOCATIONS   : {2}'.format(self.FILENAME, self.EXT, self.LOCATIONS))
-            log.info('[{0}{1}] EXTRA_INFO  : {2}'.format(self.FILENAME, self.EXT, self.EXTRA_INFO))
+            log.debug('[{0}{1}] FILENAME    : {2}'.format(self.FILENAME, self.EXT, self.FILENAME))
+            log.debug('[{0}{1}] EXT         : {2}'.format(self.FILENAME, self.EXT, self.EXT))
+            log.debug('[{0}{1}] YEAR        : {2}'.format(self.FILENAME, self.EXT, self.YEAR))
+            log.debug('[{0}{1}] MONTH       : {2}'.format(self.FILENAME, self.EXT, self.MONTH))
+            log.debug('[{0}{1}] DAY         : {2}'.format(self.FILENAME, self.EXT, self.DAY))
+            log.debug('[{0}{1}] START_TIME  : {2}'.format(self.FILENAME, self.EXT, self.START_TIME))
+            log.debug('[{0}{1}] END_TIME    : {2}'.format(self.FILENAME, self.EXT, self.END_TIME))
+            log.debug('[{0}{1}] LOCATIONS   : {2}'.format(self.FILENAME, self.EXT, self.LOCATIONS))
+            log.debug('[{0}{1}] EXTRA_INFO  : {2}'.format(self.FILENAME, self.EXT, self.EXTRA_INFO))
 
 
 def main():

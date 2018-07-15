@@ -35,7 +35,6 @@ def GetSubjectType(value):
             return SUBJECT_TYPES[subject]
     return 99
 
-
 class FileHandler(object):
 
     def __init__(self, SOURCE):
@@ -70,7 +69,9 @@ class FileHandler(object):
         if self.SUBJECT_TYPE == 1:
             log.info('[{0}]: Sending to Facility Request Processor...'.format(self.FILENAME))
 #           facility_requests.ProcessFile(self.FULLFILE)
-            facility_requests.ProcessFile(self)
+#            facility_requests.ProcessFile(self)
+            facility_requests.FacilityRequest(self)
+
             #    FacilityRequest.Start(SOURCE, PATH_FAC_REQUEST)
 
         elif self.SUBJECT_TYPE == 2:
@@ -84,3 +85,10 @@ class FileHandler(object):
         else:
             log.critical('[{0}]: Unknown error has occured while processing file.'.format(self.FILENAME))
             sys.exit()
+
+# StartUp
+def main():
+    log.debug('Module Loaded!')
+
+
+main()
