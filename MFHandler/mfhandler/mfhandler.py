@@ -12,7 +12,7 @@ from common.logger import log
 import logging
 log = logging.getLogger(__name__)
 
-from FileHandler import ProcessFile
+from FileHandler import FileHandler
 
 def StartUp():
     log.debug('Script Loaded!')
@@ -21,7 +21,13 @@ def StartUp():
 #        for FILE in FILES:
 #            ProcessFile(os.path.join(DIR, FILE))
 
-    ProcessFile('/home/mix-man/Facility Requests/2018-01-01 - DAY-CREW - MPR.pdf')
+    # file = FileHandler('/home/mix-man/Facility Requests/2018-01-01 - DAY-CREW - MPR.pdf')
+    file = FileHandler('/home/mix-man/Facility Requests/2018-01-01 - DAY-CREW - MPR.pdf')
+    file.ProcessFile()
+
+    file2 = FileHandler('/home/mix-man/Employee Files/Training/Last, First - 2018-06-09 - EEO.pdf')
+    file2.ProcessFile()
+
 #    ProcessFile('/home/mix-man/Facility Requests/2018-01-01 - 0800-0900 - MPR.pdf')
 #    ProcessFile('/home/mix-man/Facility Requests/2018-01-01T1630 - 2018-01-02T1800 - MPR.pdf')
 #    ProcessFile('/home/mix-man/Facility Requests/2018-01-01T1630 - 2018-01-02T1800 - MPR - Special Setup.pdf')
