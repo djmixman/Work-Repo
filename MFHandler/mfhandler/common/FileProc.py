@@ -4,7 +4,7 @@ log = logging.getLogger(__name__)
 
 from common.yesno import YNQ as Q
 
-import os, sys
+import os, sys, shutil
 
 # # Config Setup
 # from ConfigParser import SafeConfigParser
@@ -87,8 +87,10 @@ def RemoveFile(TARGET):
 
 
 def MoveFile(SOURCE, TARGET):
-    pass
-
+    log.info('Moving File from: {0}'.format(SOURCE))
+    log.info('              to: {0}'.format(TARGET))
+    # shutil.move(SOURCE, TARGET)
+    return True
 
 
 # StartUp

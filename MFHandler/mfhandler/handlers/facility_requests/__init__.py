@@ -21,7 +21,6 @@ class FacilityRequest(object):
         Checks if TARGET_PATH exists and asks to create if not
         '''
         if FileProc.CheckDIR(self.TARGET_PATH):
-            log.debug('[{0}] Test Result: {1}'.format(self.FILENAME, test))
             return True
         else:
             log.warn('[{0}]: There was a problem while creating TARGET_PATH. Skipping file.'.format(self.FILENAME, self.TARGET_PATH))
@@ -83,7 +82,7 @@ class FacilityRequest(object):
                 log.info('DIR Check Passed...')
                 if self.CheckFILE():
                     log.info('FILE Check Passed...')
-                    pass
+                    FileProc.MoveFile(self.FULLFILE, self.TARGET_FULL)
 
 
 
