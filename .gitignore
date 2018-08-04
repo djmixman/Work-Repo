@@ -2,3 +2,5 @@
 *.pyc
 *.old
 __pycache__
+MFHandler.old
+Test-Data
