@@ -1,8 +1,8 @@
 import logging
 
 ConfigFile  = 'config.ini'
-from ConfigParser import SafeConfigParser
-config = SafeConfigParser()
+from configparser import ConfigParser
+config = ConfigParser()
 config.read(ConfigFile)
 
 LOG_CONSOLE_LEVEL     = logging.INFO

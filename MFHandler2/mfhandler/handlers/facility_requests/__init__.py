@@ -2,12 +2,12 @@
 import logging
 log = logging.getLogger(__name__)
 
-from ConfigParser import SafeConfigParser
+from configparser import ConfigParser
 ConfigFile = 'config.ini'
-config = SafeConfigParser()
+config = ConfigParser()
 config.read(ConfigFile)
 
-from regexs import Rex
+from handlers.facility_requests.regexs import Rex
 from common import FileProc
 from common import MonthAttr
 import os

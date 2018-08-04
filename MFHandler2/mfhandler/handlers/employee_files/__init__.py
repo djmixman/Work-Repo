@@ -2,9 +2,9 @@
 import logging
 log = logging.getLogger(__name__)
 
-from ConfigParser import SafeConfigParser
+from configparser import ConfigParser
 ConfigFile = 'config.ini'
-config = SafeConfigParser()
+config = ConfigParser()
 config.read(ConfigFile)
 
 # from regexs import Rex
@@ -30,7 +30,7 @@ class EmployeeFiles(object):
         log.info('------------- EMPLOYEE  FILES  PROCESSOR -------------')
 
         self.TYPE = FH_OBJ.TYPE
-        
+
 
 
         log.info('------------------------------------------------------')
