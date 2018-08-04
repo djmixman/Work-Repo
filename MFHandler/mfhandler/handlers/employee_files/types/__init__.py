@@ -1,15 +1,4 @@
-# Setup Logging
-import logging
-log = logging.getLogger(__name__)
-
-
-
-
-
-
-# StartUp
-def main():
-    log.debug('Module Loaded!')
-
-
-main()
+from handlers.employee_files.types import Evaluations
+from handlers.employee_files.types import Leave
+from handlers.employee_files.types import Notes
+from handlers.employee_files.types import Training

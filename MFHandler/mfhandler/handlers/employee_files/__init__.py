@@ -12,6 +12,9 @@ from common import FileProc
 from common import MonthAttr
 import os
 
+import handlers.employee_files.types as Types
+
+
 TARGET          = config.get('EMPLOYEE_FILES', 'TARGET')
 FY_START_MONTH  = int(config.get('COMMON', 'FY_START_MONTH'))
 

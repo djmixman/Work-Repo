@@ -52,7 +52,7 @@ class FacilityRequest(object):
         return True
 
     def __init__(self, FH_OBJ):
-        log.info('------------- FACILITY REQUEST PROCESSOR -------------')
+        log.debug('------------- FACILITY REQUEST PROCESSOR -------------')
         self.FULLFILE       = FH_OBJ.FULLFILE
         self.FILENAME       = FH_OBJ.FILENAME
         log.debug('[{0}]: Received file from FileHandler: {1}'.format(self.FILENAME, self.FULLFILE))
@@ -77,13 +77,13 @@ class FacilityRequest(object):
         log.debug('[{0}]: FY_TEXT   : {1}'.format(self.FILENAME, self.FY_TEXT))
 
         if self.buildFullTarget():
-            log.info('Full Target Built: {0}'.format(self.TARGET_FULL))
+            log.debug('Full Target Built: {0}'.format(self.TARGET_FULL))
             if self.CheckDIR():
-                log.info('DIR Check Passed...')
+                log.debug('DIR Check Passed...')
                 if self.CheckFILE():
-                    log.info('FILE Check Passed...')
+                    log.debug('FILE Check Passed...')
                     FileProc.MoveFile(self.FULLFILE, self.TARGET_FULL)
-        log.info('------------------------------------------------------')
+        log.debug('------------------------------------------------------')
 
 
 # StartUp

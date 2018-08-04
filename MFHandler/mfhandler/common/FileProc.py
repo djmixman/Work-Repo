@@ -87,8 +87,9 @@ def RemoveFile(TARGET):
 
 
 def MoveFile(SOURCE, TARGET):
-    log.info('Moving File from: {0}'.format(SOURCE))
-    log.info('              to: {0}'.format(TARGET))
+    log.debug('Moving File from: {0}'.format(SOURCE))
+    log.debug('              to: {0}'.format(TARGET))
+    log.info('Enable filemoving in FileProc.py')
     # shutil.move(SOURCE, TARGET)
     return True
 

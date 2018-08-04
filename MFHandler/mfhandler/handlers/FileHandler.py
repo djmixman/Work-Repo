@@ -12,6 +12,8 @@ config.read(ConfigFile)
 import os, sys
 
 from handlers.facility_requests import FacilityRequest
+from handlers.employee_files import EmployeeFiles
+
 
 SOURCE_PATH = config.get('FILE_HANDLER','SOURCE_PATH')
 
