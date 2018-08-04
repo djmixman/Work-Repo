@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
 # Setup configuration
 ConfigFile = 'config.ini'
@@ -22,9 +22,15 @@ def StartUp():
 #            ProcessFile(os.path.join(DIR, FILE))
 
     # file = FileHandler('/home/mix-man/Facility Requests/2018-01-01 - DAY-CREW - MPR.pdf')
-    import glob
-    for file in glob.glob('/home/mix-man/temp/Work/Facility Requests/*'):
-#        log.info(file)
+
+    import os
+    matches = []
+    for root, dirnames, filenames in os.walk('/home/mix-man/temp/Work/TestData/'):
+        for filename in filenames:
+            matches.append(os.path.join(root, filename))
+
+    for file in matches:
+        log.info('PROCESSING: {0}'.format(file))
         run = FileHandler(file)
         run.ProcessFile()
 

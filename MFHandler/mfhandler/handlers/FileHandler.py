@@ -71,7 +71,8 @@ class FileHandler(object):
 
         elif self.SUBJECT_TYPE == 2:
             log.debug('[{0}]: Sending to Employee Files Processor...'.format(self.FILENAME))
-            pass
+            employee_files.EmployeeFiles(self)
+#            pass
 
         elif self.SUBJECT_TYPE == 99:
             log.critical('[{0}]: Unable to determine subject! Check the file and/or the "Work Directory" and try again.'.format(self.FILENAME))
